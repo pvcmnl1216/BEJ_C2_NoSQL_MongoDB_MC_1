@@ -1,0 +1,280 @@
+1.create Database
+// use restaurant_db
+   switched to db restaurant_db
+2.create collection
+// db.createCollection("restaurant")
+   { ok: 1 }
+3. insert details
+     db.restaurant_db.insertMany([{"address":{"building":"German complex","street":"4th cross","zipcode":604567},"type_of_restaurent":"Restaurant","cuisine":["arabic","crispy"],"state":"mania","grades":[{"date":{"$date":123123},"grade":"A","score":2},{"date":{"$date":12121212},"grade":"A","score":6},{"date":{"$date":234567},"grade":"A","score":10},{"date":{"$date":343423},"grade":"A","score":9},{"date":{"$date":11223344},"grade":"B","score":14}],"name":"cakes shop","restaurant_id":123456}])
+4. find the details
+// db.restaurant_db.find()
+   [
+     {
+       _id: ObjectId("63ac2e932e8b9de93df0a81a"),
+       address: {
+         building: '12,James complex',
+         street: '2nd cross',
+         zipcode: 234123
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'pasta', 'desert' ],
+       state: 'oklahoma',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ]
+     },
+     {
+       _id: ObjectId("63ac2fdc2e8b9de93df0a81b"),
+       address: {
+         building: '12,James complex',
+         street: '2nd cross',
+         zipcode: 234123
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'pasta', 'desert' ],
+       state: 'oklahoma',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'pearl bake shop',
+       restaurant_id: 123123123
+     },
+     {
+       _id: ObjectId("63ac31872e8b9de93df0a81c"),
+       address: {
+         building: 'French complex',
+         street: '4th cross',
+         zipcode: 403204
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'french', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 1234
+     },
+     {
+       _id: ObjectId("63ac31ea2e8b9de93df0a81d"),
+       address: {
+         building: 'Indian complex',
+         street: '4th cross',
+         zipcode: 404567
+       },
+       type_of_restaurent: 'Restaurant',
+       cuisine: [ 'indian', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 12345
+     },
+     {
+       _id: ObjectId("63ac32212e8b9de93df0a81e"),
+       address: {
+         building: 'German complex',
+         street: '4th cross',
+         zipcode: 604567
+       },
+       type_of_restaurent: 'Restaurant',
+       cuisine: [ 'arabic', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 123456
+     }
+   ]
+4. display the restaurant for french and indian
+//  db.restaurant_db.find({$or:[{"cuisine":"indian"},{"cuisine":"french"}]})
+   [
+     {
+       _id: ObjectId("63ac31872e8b9de93df0a81c"),
+       address: {
+         building: 'French complex',
+         street: '4th cross',
+         zipcode: 403204
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'french', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 1234
+     },
+     {
+       _id: ObjectId("63ac31ea2e8b9de93df0a81d"),
+       address: {
+         building: 'Indian complex',
+         street: '4th cross',
+         zipcode: 404567
+       },
+       type_of_restaurent: 'Restaurant',
+       cuisine: [ 'indian', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 12345
+     }
+   ]
+5.display the field for the zipcode:403204
+//  db.restaurant_db.find({"address.zipcode":403204},{"restaurant_id":true,"grades.score":true})
+   [
+     {
+       _id: ObjectId("63ac31872e8b9de93df0a81c"),
+       grades: [
+         { score: 2 },
+         { score: 6 },
+         { score: 10 },
+         { score: 9 },
+         { score: 14 }
+       ],
+       restaurant_id: 1234
+     }
+   ]
+6.display score greater then 10
+//  db.restaurant_db.find({"grades.score":{$gte:10}})
+   [
+     {
+       _id: ObjectId("63ac2e932e8b9de93df0a81a"),
+       address: {
+         building: '12,James complex',
+         street: '2nd cross',
+         zipcode: 234123
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'pasta', 'desert' ],
+       state: 'oklahoma',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ]
+     },
+     {
+       _id: ObjectId("63ac2fdc2e8b9de93df0a81b"),
+       address: {
+         building: '12,James complex',
+         street: '2nd cross',
+         zipcode: 234123
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'pasta', 'desert' ],
+       state: 'oklahoma',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'pearl bake shop',
+       restaurant_id: 123123123
+     },
+     {
+       _id: ObjectId("63ac31872e8b9de93df0a81c"),
+       address: {
+         building: 'French complex',
+         street: '4th cross',
+         zipcode: 403204
+       },
+       type_of_restaurent: 'Bakery',
+       cuisine: [ 'french', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 1234
+     },
+     {
+       _id: ObjectId("63ac31ea2e8b9de93df0a81d"),
+       address: {
+         building: 'Indian complex',
+         street: '4th cross',
+         zipcode: 404567
+       },
+       type_of_restaurent: 'Restaurant',
+       cuisine: [ 'indian', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 12345
+     },
+     {
+       _id: ObjectId("63ac32212e8b9de93df0a81e"),
+       address: {
+         building: 'German complex',
+         street: '4th cross',
+         zipcode: 604567
+       },
+       type_of_restaurent: 'Restaurant',
+       cuisine: [ 'arabic', 'crispy' ],
+       state: 'mania',
+       grades: [
+         { date: { '$date': 123123 }, grade: 'A', score: 2 },
+         { date: { '$date': 12121212 }, grade: 'A', score: 6 },
+         { date: { '$date': 234567 }, grade: 'A', score: 10 },
+         { date: { '$date': 343423 }, grade: 'A', score: 9 },
+         { date: { '$date': 11223344 }, grade: 'B', score: 14 }
+       ],
+       name: 'cakes shop',
+       restaurant_id: 123456
+     }
+   ]
+7. Display sum of all scores
+    //  db.restaurant_db.aggregate([{$project:{TotalScore:{$sum: "$grades.score" }}}])
+       [
+         { _id: ObjectId("63ac2e932e8b9de93df0a81a"), TotalScore: 41 },
+         { _id: ObjectId("63ac2fdc2e8b9de93df0a81b"), TotalScore: 41 },
+         { _id: ObjectId("63ac31872e8b9de93df0a81c"), TotalScore: 41 },
+         { _id: ObjectId("63ac31ea2e8b9de93df0a81d"), TotalScore: 41 },
+         { _id: ObjectId("63ac32212e8b9de93df0a81e"), TotalScore: 41 }
+       ]
